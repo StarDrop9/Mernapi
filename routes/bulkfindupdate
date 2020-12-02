@@ -1,0 +1,16 @@
+var bulk = Todo.initializeUnorderedBulkOp();
+bulk.find( { creator_id: null } ).update(
+   [
+      { $set: { creator_id:'5f78e0375736cd5c2894550f' } }
+   ]
+);
+bulk.execute();
+
+Working Export & Import Commands : Note need to run as Administrator from system command line.
+Tools were added to mongodb bin directory.
+
+mongoexport --uri="mongodb+srv://kurtstarck:Lance-7531@cluster0.ptzql.azure.mongodb.net/<dbname>?retryWrites=true&w=majority" --collection=todos --out=todos.json
+
+mongoimport --uri="mongodb+srv://kurtstarck:Lance-7531@cluster0.ptzql.azure.mongodb.net/Tasks?retryWrites=true&w=majority" --collection=todos todos.json
+
+
